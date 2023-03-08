@@ -21,7 +21,7 @@ function App() {
           type="text"
           onFocus={setCurrentActiveInput}
           name="name"
-          className={currentInput.name == "name"? "onFocus" : ""}
+          className={currentInput.name === "name"? "onFocus" : ""}
           autoComplete="off"
         />
       </p>
@@ -31,7 +31,7 @@ function App() {
           type="text"
           onFocus={setCurrentActiveInput}
           name="last"
-          className={currentInput.name == "last"? "onFocus" : ""}
+          className={currentInput.name === "last"? "onFocus" : ""}
           autoComplete="off"
         />
       </p>
@@ -41,7 +41,7 @@ function App() {
           type="text"
           onFocus={setCurrentActiveInput}
           name="email"
-          className={currentInput.name == "email"? "onFocus" : ""}
+          className={currentInput.name === "email"? "onFocus" : ""}
           autoComplete="off"
         />
       </p>
