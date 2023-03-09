@@ -92,7 +92,7 @@ li {
 }
 
 li:active, .active{
-  scale: .6;
+  scale: .8;
   background-color: #999;
   color: white;
   box-shadow: 0 0 0 10px white, 0 0 15px 10px white, inset 0 0 5px rgba(0, 0, 0, 0.7) ;
@@ -106,16 +106,12 @@ li:active, .active{
   width: 6em;
 }
 
-#left-shift {
+#shift {
   width: 8em;
 }
 
 #enter {
   width: 6em;
-}
-
-#right-shift {
-  width: 8em;
 }
 
 #back {

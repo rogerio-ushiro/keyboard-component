@@ -3,7 +3,7 @@ This React keyboard component is simple yet useful for integrating into touch sc
 
 <h2>Demonstration</h2>
 
-![](./readme.img/keyboard2.gif )
+![](./readme.img/keyboard3.gif )
 
 
 <h2>keyboard features</h2>

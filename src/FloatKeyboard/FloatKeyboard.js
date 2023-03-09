@@ -4,6 +4,7 @@ import "./FloatKeyboard.css";
 const FloatKeyboard = forwardRef((props, ref) => {
   const { getKeyDown } = props;
   const [capsActive, setCapsActive] = useState(false);
+  const [shiftActive, setShiftActive] = useState(false);
   const [enable, setEnable] = useState(false);
   const [data, setData] = useState([]);
 
@@ -35,30 +36,36 @@ const FloatKeyboard = forwardRef((props, ref) => {
       case "back":
         setData(data.slice(0, data.length - 1));
         break;
-      case "caps":
-        setCapsActive((capsActive) => !capsActive);
+        case "caps":
+          setCapsActive((capsActive) => !capsActive);
+          break;
+      case "shift":
+        setShiftActive((shiftActive) => !shiftActive);
         break;
       case "space":
         setData((data) => data + " ");
         break;
       case "combr":
         setData((data) =>
-          capsActive
+          capsActive || shiftActive 
             ? data + ".COM.BR".toUpperCase()
             : data + ".COM.BR".toLowerCase()
         );
+        setShiftActive(false);
         break;
       case "com":
         setData((data) =>
-          capsActive ? data + ".COM".toUpperCase() : data + ".COM".toLowerCase()
+          capsActive || shiftActive ? data + ".COM".toUpperCase() : data + ".COM".toLowerCase()
         );
+        setShiftActive(false);
         break;
       default:
         setData((data) =>
-          capsActive
+          capsActive || shiftActive 
             ? data + inputKey.toUpperCase()
             : data + inputKey.toLowerCase()
         );
+        setShiftActive(false);
         break;
     }
   };
@@ -117,7 +124,7 @@ const FloatKeyboard = forwardRef((props, ref) => {
           <li onClick={send} id="enter">ENTER</li>
         </ul>
         <ul className="row row-3">
-          <li onClick={send} id="left-shift">SHIFT</li>
+          <li onClick={send} id="shift" className={shiftActive ? "active" : ""}>SHIFT</li>
           <li onClick={send} id="Z">Z</li>
           <li onClick={send} id="X">X</li>
           <li onClick={send} id="C">C</li>
@@ -128,7 +135,7 @@ const FloatKeyboard = forwardRef((props, ref) => {
           <li onClick={send} id=",">,</li>
           <li onClick={send} id=".">.</li>
           <li onClick={send} id=";">;</li>
-          <li onClick={send} id="right-shift">SHIFT</li>
+          <li onClick={send} id="shift" className={shiftActive ? "active" : ""}>SHIFT</li>
         </ul>
 
         <ul className="row row-4">
